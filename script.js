@@ -44,7 +44,7 @@ function submitForm() {
     let cyclic_code = document.getElementById("cyclic_code")
     cyclic_code.textContent = "Циклический [" + n.toString() + ", " + k.toString() + "]-код: " + deleteZeroes(coded).join('')
 
-    let table = document.getElementById('Table').getElementsByTagName('tbody')[0];
+    let table = createTable()
 
     for (let i = 1; i <= n; i++) {
         let errors = 0
@@ -68,6 +68,29 @@ function submitForm() {
     }
 
     return false; // Returning false prevents the form from submitting
+}
+
+function createTable() {
+    let table = document.getElementById('Table');
+    table.getElementsByTagName('thead')[0].innerHTML = '';
+    let t_body = table.getElementsByTagName('tbody')[0];
+    t_body.innerHTML = ''
+    let headerRow = document.getElementById('Table').insertRow();
+
+    const headerCellContents = [
+        "Кратность ошибки, i",
+        "Общее число ошибок, Cⁱₙ",
+        "Число обнаруженных ошибок, N₀",
+        "Обнаруживающая способность кода, C₀"
+    ];
+
+    headerCellContents.forEach(content => {
+        let th = document.createElement('th');
+        th.textContent = content;
+        headerRow.appendChild(th);
+    });
+
+    return t_body
 }
 
 function deleteZeroes(a) {
