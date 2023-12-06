@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ДЗ 2</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <form id="Form" onsubmit="return submitForm()">
+        <div>
+            <label for="n_input">N:</label>
+            <input type="text" id="n_input" name="n" value="15">
+            <!-- <input type="text" id="n_input" name="n" required> -->
+        </div>
+        <div>
+            <label for="k_input">K:</label>
+            <input type="text" id="k_input" name="k" value="11">
+        </div>
+        <div>
+            <label for="m">Информационный вектор:</label>
+            <input type="text" id="m" name="m" value="11111010001">
+        </div>
+        <div>
+            <label for="g">Порождающий вектор:</label>
+            <input type="text" id="g" name="g" value="10011">
+        </div>
+        <button type="submit">Рассчитать</button>
+    </form>
+
+    <label id="cyclic_code"></label>
+
+    <table id="Table">
+        <thead>
+            <tr>
+                <th>Кратность ошибки, i</th>
+                <th>Общее число ошибок, Cⁱₙ</th>
+                <th>Число обнаруженных ошибок, N₀</th>
+                <th>Обнаруживающая способность кода, C₀</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
