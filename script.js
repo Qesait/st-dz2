@@ -1,12 +1,12 @@
 function submitForm() {
     let form = document.getElementById('Form');
 
-    let n = parseInt(form.elements.n.value, 10);
+    let n = parseInt(form.elements.n.value);
     if (isNaN(n)) {
         alert("Неверное значение для N");
         return false
     }
-    let k = parseInt(form.elements.k.value, 10);
+    let k = parseInt(form.elements.k.value);
     if (isNaN(k)) {
         alert("Неверное значение для K");
         return false
@@ -40,10 +40,10 @@ function submitForm() {
 
     console.log(n, k, m, g);
     let coded = code(m, g, n, k);
-    
+
     let cyclic_code = document.getElementById("cyclic_code")
-    cyclic_code.textContent = "Циклический [" + n.toString() + ", " + k.toString() + "]-код: " + coded.join('')
-    
+    cyclic_code.textContent = "Циклический [" + n.toString() + ", " + k.toString() + "]-код: " + deleteZeroes(coded).join('')
+
     let table = document.getElementById('Table').getElementsByTagName('tbody')[0];
 
     for (let i = 1; i <= n; i++) {
@@ -68,6 +68,18 @@ function submitForm() {
     }
 
     return false; // Returning false prevents the form from submitting
+}
+
+function deleteZeroes(a) {
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] === 1) {
+            if (i !== 0) {
+                a = a.slice(i)
+            }
+            break
+        }
+    }
+    return a
 }
 
 function code(m, g, n, k) {
@@ -108,17 +120,13 @@ function generateErrors(n, k, callback) {
             callback(current);
             return;
         }
-
         if (onesCount > 0) {
             backtrack(current.slice().concat([1]), onesCount - 1, remainingZeros);
         }
-
         if (remainingZeros > 0) {
             backtrack(current.slice().concat([0]), onesCount, remainingZeros - 1);
         }
     }
-
     backtrack([], k, n - k);
-
     return;
 }
