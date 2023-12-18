@@ -26,7 +26,7 @@ function submitForm() {
     }
 
     if (form.elements.g.value.length > (n - k + 1)) {
-        alert("Длина порождающего вектора должна быть равна N")
+        alert("Неверная длина порождающего вектора")
         return false
     }
     let g = []

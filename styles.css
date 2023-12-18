@@ -1,4 +1,57 @@
-form {
+.col {
     display: flex;
     flex-direction: column;
+    gap: 5px;
+    justify-content: space-between;
+    flex: auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+body {
+    margin: 30px;
+}
+
+button {
+    margin-top: 15px;
+    flex-shrink: 2;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: 1px solid #a2a2a2;
+    border-radius: 2px;
+    background-color: #f2f2f2;
+}
+
+label {
+    text-align: right;
+}
+
+.label-col {
+    flex: initial;
+}
+
+.spacer {
+    flex-grow: 20;
 }

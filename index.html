@@ -9,34 +9,34 @@
 </head>
 
 <body>
-    <form id="Form" onsubmit="return submitForm()">
-        <div>
-            <label for="n_input">N:</label>
-            <input type="text" id="n_input" name="n" value="7">
-            <!-- <input type="text" id="n_input" name="n" required> -->
-        </div>
-        <div>
-            <label for="k_input">K:</label>
-            <input type="text" id="k_input" name="k" value="4">
-        </div>
-        <div>
-            <label for="m">Информационный вектор:</label>
-            <input type="text" id="m" name="m" value="0010">
-        </div>
-        <div>
-            <label for="g">Порождающий вектор:</label>
-            <input type="text" id="g" name="g" value="1011">
-        </div>
-        <button type="submit">Рассчитать</button>
-    </form>
+    <div class="col">
+        <form id="Form" class="row" onsubmit="return submitForm()">
+            <div class="col">
+                <div class="row">
+                    <div class="col label-col">
+                        <label for="n">N:</label>
+                        <label for="k">K:</label>
+                        <label for="m">Информационный вектор:</label>
+                        <label for="g">Порождающий вектор:</label>
+                    </div>
+                    <div class="col data-col">
+                        <input type="text" id="n" name="n" value="7">
+                        <input type="text" id="k" name="k" value="4">
+                        <input type="text" id="m" name="m" value="0010">
+                        <input type="text" id="g" name="g" value="1011">
+                    </div>
+                </div>
+                <button type="submit">Рассчитать</button>
+            </div>
+            <div class="spacer"></div>
+        </form>
 
-    <label id="cyclic_code"></label>
+        <h3 id="cyclic_code"></h3>
 
-    <table id="Table">
-        <thead>
-            <tr>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        <table id="Table">
+            <thead>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 </body>
